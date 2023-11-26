@@ -21,6 +21,20 @@ namespace Facturador.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+
+            var f = new Invoice();
+
+            var item = new Item();
+            item.Cantidad = 2f;
+            item.NombreItem = "Tal cual";
+            item.ValorUnitario = 5.90f;
+            item.ValorTotalItem = item.Cantidad * item.ValorUnitario;
+
+            f.Items.Add(new Item { Cantidad= 5, NombreItem = "Algo", ValorUnitario =3.5f, ValorTotalItem = 0});
+            f.Items.Add(item);
+            
+
+
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
