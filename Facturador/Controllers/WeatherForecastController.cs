@@ -26,7 +26,7 @@ namespace Facturador.Controllers
 
             var item = new Item();
             item.Cantidad = 2f;
-            item.NombreItem = "Tal cual";
+            item.NombreItem = "Algo";
             item.ValorUnitario = 5.90f;
             item.ValorTotalItem = item.Cantidad * item.ValorUnitario;
 
