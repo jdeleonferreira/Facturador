@@ -10,7 +10,7 @@
         public string Address { get; set; }
         public string City { get; set; }
         public string Country { get; set; }
-        #endregion
+        #endregion 
 
         public string InvoiceNumber { get; set; }
 
@@ -28,5 +28,27 @@
         public List<InvoiceItemsList> Items { get; set; }
         public string Notes { get; set; }
         public decimal Total { get; set; }
+
+
+        //Logic of invoice 
+
+
+        //Region total Data Final
+        public decimal ValueFinalInvoice(decimal total)
+        {
+            decimal retencionMonto = total * (decimal) 0.025; 
+            decimal ivaMonto = total * (decimal)0.19;  
+
+            decimal finalValue = total + retencionMonto + ivaMonto;
+            return finalValue;
+        }
+
+
+       
+
+
+
+
+
     }
 }
