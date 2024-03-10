@@ -27,6 +27,7 @@
       
         public List<InvoiceItemsList> Items { get; set; }
         public string Notes { get; set; }
+        //TODO: Revisar adelante. Set should be private.
         public decimal Total { get; set; }
 
 
@@ -34,6 +35,10 @@
 
 
         //Region total Data Final
+        //SINGLE RESPONSABILITY
+        //TODO: Change to void.
+        //TODO: Change name to CalculateTotalInvoice
+        //TODO: Add functionality to get all tax info from external place.
         public decimal ValueFinalInvoice(decimal total)
         {
             decimal retencionMonto = total * (decimal) 0.025; 
