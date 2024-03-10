@@ -11,7 +11,7 @@
 
 
   
-        public void CalculateLineTotal(float Quantity  )
+        public void CalculateLineTotal()
         {
             LineTotal =  Convert.ToDecimal(Quantity) *  Item.UnitPrice;
         }

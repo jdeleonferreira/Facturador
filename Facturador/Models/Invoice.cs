@@ -1,7 +1,10 @@
-﻿namespace Facturador.Models
+﻿using Facturador.Models.Taxes;
+
+namespace Facturador.Models
 {
     public class Invoice
     {
+        private readonly Taxes.Taxes _Taxes;
 
         #region Company Data
         public string CompanyName { get; set; }
@@ -27,32 +30,34 @@
       
         public List<InvoiceItemsList> Items { get; set; }
         public string Notes { get; set; }
+        public List<Tax> Taxes { get; set; }
         //TODO: Revisar adelante. Set should be private.
+        public decimal Subtotal { get; set; }
         public decimal Total { get; set; }
 
-
-        //Logic of invoice 
-
-
-        //Region total Data Final  
-        //SINGLE RESPONSABILITY 2 Ok
-        //TODO: Change to void. 3 ok
-        //TODO: Change name to CalculateTotalInvoice 4 ok
-        //TODO: Add functionality to get all tax info from external place. 5   
-        public void CalculateTotalInvoice(decimal total)
+        public Invoice(Taxes.Taxes taxes)
         {
-            decimal retencionMonto = total * (decimal)  0.025; 
-            decimal ivaMonto = total * (decimal) 0.19;  
-
-            Total = total + retencionMonto + ivaMonto;
+            _Taxes = taxes;
         }
 
+        //Region total Data Final  
+        //TODO: Add functionality to get all tax info from external place. 5   
 
-       
+        /// <summary>
+        /// Calculate total invoice and taxes for items globally.
+        /// </summary>
+        public void CalculateTotalInvoice()
+        {
+            decimal totalItems = 0;
+            foreach(InvoiceItemsList item in Items)
+            {
+                item.CalculateLineTotal();
+                totalItems += item.LineTotal;
+            }
 
-
-
-
-
+            var iva = _Taxes.CalculateTaxes(TaxesList.IVA, totalItems);
+            Subtotal = totalItems;
+            Total = Subtotal + iva;
+        }
     }
 }

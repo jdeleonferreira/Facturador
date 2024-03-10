@@ -3,28 +3,26 @@
     public class Taxes
     {
 
-        public void CalculateTaxes()
+        //List TaxName & Value
+
+        public decimal CalculateTaxes(TaxesList tax, decimal value)
         {
+            decimal result = 0;
+            switch (tax)
+            {
+                case TaxesList.IVA:
+                    result = value * 0.19m;
+                    break;
+                case TaxesList.ICA:
+                    result = value * 0.04m; // | 0.08f | 0.16f
+                    break;
+                case TaxesList.IPOCONSUMO:
+                    result = value * 0.08m;
+                    break;
+            }
 
-            
-            //switch (listTaxes)
-            //{
-            //    case listTaxes.IVA:
-            //        break;
-            //    case listTaxes.ICA:
-            //        break;
-            //    case listTaxes.IPOCONSUMO:
-            //        break;
-            //}
-
-            //return TaxesList switch
-            //{
-            //    TaxesList.IVA => 0
-            //}
-
+            return result;
         }
-
-
     }
 }
 

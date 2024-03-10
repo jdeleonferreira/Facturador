@@ -1,6 +1,6 @@
 ﻿namespace Facturador.Models.Taxes
 {
-    public enum listTaxes
+    public enum TaxesList
     {
         IVA = 0,
         ICA = 1,

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34316.72
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facturador", "Facturador\Facturador.csproj", "{C862B05D-5085-458C-9C23-4A28ABC9E478}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facturador", "Facturador\Facturador.csproj", "{C862B05D-5085-458C-9C23-4A28ABC9E478}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facturador.Test", "Facturador.Test\Facturador.Test.csproj", "{462158E6-44D6-4435-B6F9-CAF93216324F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C862B05D-5085-458C-9C23-4A28ABC9E478}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C862B05D-5085-458C-9C23-4A28ABC9E478}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C862B05D-5085-458C-9C23-4A28ABC9E478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{462158E6-44D6-4435-B6F9-CAF93216324F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{462158E6-44D6-4435-B6F9-CAF93216324F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{462158E6-44D6-4435-B6F9-CAF93216324F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{462158E6-44D6-4435-B6F9-CAF93216324F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
