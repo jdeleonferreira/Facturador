@@ -34,18 +34,17 @@
         //Logic of invoice 
 
 
-        //Region total Data Final
-        //SINGLE RESPONSABILITY
-        //TODO: Change to void.
-        //TODO: Change name to CalculateTotalInvoice
-        //TODO: Add functionality to get all tax info from external place.
-        public decimal ValueFinalInvoice(decimal total)
+        //Region total Data Final  
+        //SINGLE RESPONSABILITY 2 Ok
+        //TODO: Change to void. 3 ok
+        //TODO: Change name to CalculateTotalInvoice 4 ok
+        //TODO: Add functionality to get all tax info from external place. 5   
+        public void CalculateTotalInvoice(decimal total)
         {
-            decimal retencionMonto = total * (decimal) 0.025; 
-            decimal ivaMonto = total * (decimal)0.19;  
+            decimal retencionMonto = total * (decimal)  0.025; 
+            decimal ivaMonto = total * (decimal) 0.19;  
 
-            decimal finalValue = total + retencionMonto + ivaMonto;
-            return finalValue;
+            Total = total + retencionMonto + ivaMonto;
         }
 
 
