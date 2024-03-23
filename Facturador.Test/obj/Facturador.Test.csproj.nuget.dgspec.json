@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador.Test\\Facturador.Test.csproj": {}
+    "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador.Test\\Facturador.Test.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador.Test\\Facturador.Test.csproj": {
+    "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador.Test\\Facturador.Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador.Test\\Facturador.Test.csproj",
+        "projectUniqueName": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador.Test\\Facturador.Test.csproj",
         "projectName": "Facturador.Test",
-        "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador.Test\\Facturador.Test.csproj",
-        "packagesPath": "C:\\Users\\WorkHome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador.Test\\obj\\",
+        "projectPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador.Test\\Facturador.Test.csproj",
+        "packagesPath": "C:\\Users\\JM_DEV2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador.Test\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\WorkHome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JM_DEV2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj": {
-                "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj"
+              "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj": {
+                "projectPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj"
               }
             }
           }
@@ -65,7 +65,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[4.0.1, )"
+              "version": "[4.1.0, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
@@ -75,7 +75,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.1, )"
+              "version": "[6.0.2, )"
             }
           },
           "imports": [
@@ -98,20 +98,20 @@
         }
       }
     },
-    "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj": {
+    "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj",
+        "projectUniqueName": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj",
         "projectName": "Facturador",
-        "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj",
-        "packagesPath": "C:\\Users\\WorkHome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\obj\\",
+        "projectPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj",
+        "packagesPath": "C:\\Users\\JM_DEV2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\WorkHome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JM_DEV2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -141,7 +141,7 @@
           "dependencies": {
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [

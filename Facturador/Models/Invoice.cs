@@ -15,6 +15,7 @@ namespace Facturador.Models
         public string Country { get; set; }
         #endregion 
 
+
         public string InvoiceNumber { get; set; }
 
         #region Customer Data

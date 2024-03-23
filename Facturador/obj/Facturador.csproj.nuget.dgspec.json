@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj": {}
+    "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj": {}
   },
   "projects": {
-    "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj": {
+    "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj",
+        "projectUniqueName": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj",
         "projectName": "Facturador",
-        "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj",
-        "packagesPath": "C:\\Users\\WorkHome\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\obj\\",
+        "projectPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj",
+        "packagesPath": "C:\\Users\\JM_DEV2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\WorkHome\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JM_DEV2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -47,7 +47,7 @@
           "dependencies": {
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
