@@ -18,12 +18,7 @@ namespace Facturador.Models
         public string InvoiceNumber { get; set; }
 
         #region Customer Data
-        public string CustomerName { get; set; }
-        public string TaxationCustomerNumbner { get; set; }
-        public string CustomerAddress { get; set; }
-        public string CustomerContactNumber { get; set; }
-        public string CustomerCity { get; set; }
-        public string CustomerCountry { get; set; }
+        public Customer Customer { get; set; }
         #endregion
 
         public DateTime CreationDate { get; set; }
