@@ -1,6 +1,7 @@
 ﻿using Facturador.Models.Taxes;
+using Facturador.Models.Customer;
 
-namespace Facturador.Models
+namespace Facturador.Models.Invoice
 {
     public class Invoice
     {
@@ -18,11 +19,11 @@ namespace Facturador.Models
         public string InvoiceNumber { get; set; }
 
         #region Customer Data
-        public Customer Customer { get; set; }
+        public Customer.Customer Customer { get; set; }
         #endregion
 
         public DateTime CreationDate { get; set; }
-      
+
         public List<InvoiceItemsList> Items { get; set; }
         public string Notes { get; set; }
         public List<Tax> Taxes { get; set; }
@@ -44,7 +45,7 @@ namespace Facturador.Models
         public void CalculateTotalInvoice()
         {
             decimal totalItems = 0;
-            foreach(InvoiceItemsList item in Items)
+            foreach (InvoiceItemsList item in Items)
             {
                 item.CalculateLineTotal();
                 totalItems += item.LineTotal;

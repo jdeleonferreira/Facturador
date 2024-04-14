@@ -1,4 +1,4 @@
-﻿namespace Facturador.Models
+﻿namespace Facturador.Models.Customer
 {
     public class Customer
     {

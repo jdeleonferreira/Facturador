@@ -1,4 +1,4 @@
-﻿namespace Facturador.Models
+﻿namespace Facturador.Models.Invoice
 {
     public class InvoiceItemsList
     {
@@ -10,10 +10,10 @@
         public decimal LineTotal { get; set; }
 
 
-  
+
         public void CalculateLineTotal()
         {
-            LineTotal =  Convert.ToDecimal(Quantity) *  Item.UnitPrice;
+            LineTotal = Convert.ToDecimal(Quantity) * Item.UnitPrice;
         }
     }
 }
