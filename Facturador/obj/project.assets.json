@@ -434,9 +434,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj",
-      "projectName": "Facturador",
-      "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj",
+      "projectUniqueName": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\WebApiFacturador.csproj",
+      "projectName": "WebApiFacturador",
+      "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\WebApiFacturador.csproj",
       "packagesPath": "C:\\Users\\WorkHome\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\obj\\",
       "projectStyle": "PackageReference",
