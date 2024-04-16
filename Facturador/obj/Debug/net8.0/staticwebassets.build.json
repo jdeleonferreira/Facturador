@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "zG910ucGpV1xno7GMd1Vv/kLshj7gy+/a6OnLsPce+4=",
-  "Source": "Facturador",
-  "BasePath": "_content/Facturador",
+  "Hash": "LALp7Mzfezq1LL+eswPK9zCrCsFK2ItlxVIOR4fLl88=",
+  "Source": "WebApiFacturador",
+  "BasePath": "_content/WebApiFacturador",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

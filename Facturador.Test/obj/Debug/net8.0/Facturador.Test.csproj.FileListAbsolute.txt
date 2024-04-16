@@ -334,11 +334,8 @@ C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\obj\Debug\net8.0\Factu
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\obj\Debug\net8.0\Facturador.Test.genruntimeconfig.cache
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\obj\Debug\net8.0\ref\Facturador.Test.dll
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\CoverletSourceRootsMapping_Facturador.Test
-C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\Facturador.deps.json
-C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\Facturador.runtimeconfig.json
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\appsettings.json
-C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\Facturador.exe
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\.playwright\package\lib\androidServerImpl.js
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\.playwright\package\lib\client\errors.js
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\.playwright\package\lib\client\webError.js
@@ -412,5 +409,8 @@ C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\nunit
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\Facturador.dll
-C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\Facturador.pdb
+C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\WebApiFacturador.deps.json
+C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\WebApiFacturador.runtimeconfig.json
+C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\WebApiFacturador.exe
+C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\WebApiFacturador.dll
+C:\Users\WorkHome\source\repos\Facturador\Facturador.Test\bin\Debug\net8.0\WebApiFacturador.pdb
