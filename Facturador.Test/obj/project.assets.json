@@ -1962,23 +1962,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JM_DEV2\\.nuget\\packages\\": {},
+    "C:\\Users\\WorkHome\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador.Test\\Facturador.Test.csproj",
+      "projectUniqueName": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador.Test\\Facturador.Test.csproj",
       "projectName": "Facturador.Test",
-      "projectPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador.Test\\Facturador.Test.csproj",
-      "packagesPath": "C:\\Users\\JM_DEV2\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador.Test\\obj\\",
+      "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador.Test\\Facturador.Test.csproj",
+      "packagesPath": "C:\\Users\\WorkHome\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\JM_DEV2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\WorkHome\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1994,8 +1994,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj": {
-              "projectPath": "C:\\Users\\JM_DEV2\\Source\\Repos\\Facurador\\Facturador\\Facturador.csproj"
+            "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj": {
+              "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj"
             }
           }
         }

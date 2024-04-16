@@ -1,0 +1,12 @@
+C:\Users\WorkHome\source\repos\Facturador\src\Application\bin\Debug\net8.0\Application.deps.json
+C:\Users\WorkHome\source\repos\Facturador\src\Application\bin\Debug\net8.0\Application.dll
+C:\Users\WorkHome\source\repos\Facturador\src\Application\bin\Debug\net8.0\Application.pdb
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\Application.sourcelink.json
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\Application.dll
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\refint\Application.dll
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\Application.pdb
+C:\Users\WorkHome\source\repos\Facturador\src\Application\obj\Debug\net8.0\ref\Application.dll
