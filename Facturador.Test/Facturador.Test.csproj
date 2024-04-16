@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Facturador\Facturador.csproj" />
+    <ProjectReference Include="..\Facturador\WebApiFacturador.csproj" />
   </ItemGroup>
 
 </Project>
