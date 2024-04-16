@@ -33,8 +33,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj": {
-                "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj"
+              "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\WebApiFacturador.csproj": {
+                "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\WebApiFacturador.csproj"
               }
             }
           }
@@ -98,12 +98,12 @@
         }
       }
     },
-    "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj": {
+    "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\WebApiFacturador.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj",
-        "projectName": "Facturador",
-        "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\Facturador.csproj",
+        "projectUniqueName": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\WebApiFacturador.csproj",
+        "projectName": "WebApiFacturador",
+        "projectPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\WebApiFacturador.csproj",
         "packagesPath": "C:\\Users\\WorkHome\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\WorkHome\\source\\repos\\Facturador\\Facturador\\obj\\",
         "projectStyle": "PackageReference",
