@@ -1,4 +1,6 @@
-﻿namespace Facturador.Web.Models.Taxes
+﻿using Facturador.Domain.Enums;
+
+namespace Facturador.Domain.Entities.Taxes
 {
     public class Taxes
     {
