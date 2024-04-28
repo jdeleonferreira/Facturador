@@ -1,9 +1,12 @@
-﻿using Facturador.Web.Models.Taxes;
-using Facturador.Web.Models.Customer;
+﻿using Facturador.Domain.Entities.Taxes;
+using Facturador.Domain.Entities.Customer;
+using Facturador.Domain.Enums;
+using Facturador.Domain.Entities.Invoice;
+using Facturador.Domain.Common;
 
-namespace Facturador.Web.Models.Invoice
+namespace Facturador.Domain.Entities.Invoice
 {
-    public class Invoice
+    public class Invoice : BaseAuditableEntity
     {
         private readonly Taxes.Taxes _Taxes;
 
@@ -20,7 +23,7 @@ namespace Facturador.Web.Models.Invoice
         public string InvoiceNumber { get; set; }
 
         #region Customer Data
-        public Customer.Customer Customer { get; set; }
+        public Customer Customer { get; set; }
         #endregion
 
         public DateTime CreationDate { get; set; }
@@ -32,7 +35,7 @@ namespace Facturador.Web.Models.Invoice
         public decimal Subtotal { get; set; }
         public decimal Total { get; set; }
 
-        public Invoice(Taxes.Taxes taxes)
+        public Invoice(Taxes taxes)
         {
             _Taxes = taxes;
         }

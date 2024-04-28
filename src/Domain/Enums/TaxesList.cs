@@ -1,4 +1,4 @@
-﻿namespace Facturador.Web.Models.Taxes
+﻿namespace Facturador.Domain.Enums
 {
     public enum TaxesList
     {

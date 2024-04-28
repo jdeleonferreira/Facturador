@@ -1,6 +1,8 @@
-﻿namespace Facturador.Web.Models.Invoice
+﻿using Facturador.Domain.Common;
+
+namespace Facturador.Domain.Entities.Invoice
 {
-    public class InvoiceItemsList
+    public class InvoiceItemsList : BaseAuditableEntity
     {
         public int ItemRow { get; set; }
         public Item Item { get; set; }
