@@ -29,22 +29,23 @@ namespace Facturador.Application.Invoices.Commands.CreateInvoice
     {
         public async Task<int> Handle(CreateInvoiceCommand request, CancellationToken cancellationToken)
         {
-            var entity = new Invoice
-            {
-                
-                ListId = request.ListId,
-                Title = request.Title,
-                Done = false
-            };
+            //var entity = new Invoice
+            //{
 
-            entity.AddDomainEvent(new TodoItemCreatedEvent(entity));
+            //    ListId = request.ListId,
+            //    Title = request.Title,
+            //    Done = false
+            //};
 
-            await context.Invoices.Include().AddAsync(entity, cancellationToken);
-            await context.InvoiceItems.AddRangeAsync();
+            //entity.AddDomainEvent(new TodoItemCreatedEvent(entity));
 
-            await _context.SaveChangesAsync(cancellationToken);
+            //await context.Invoices.Include().AddAsync(entity, cancellationToken);
+            //await context.InvoiceItems.AddRangeAsync();
 
-            return entity.Id;
+            //await _context.SaveChangesAsync(cancellationToken);
+
+            //return entity.Id;
+            return 0;
         }
     }
     public class CreateInvoice
