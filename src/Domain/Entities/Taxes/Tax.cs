@@ -1,4 +1,4 @@
-﻿namespace Facturador.Web.Models.Taxes
+﻿namespace Facturador.Domain.Entities.Taxes
 {
     public class Tax
     {
