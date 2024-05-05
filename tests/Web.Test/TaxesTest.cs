@@ -1,4 +1,4 @@
-﻿using Facturador.Models.Taxes;
+﻿using Facturador.Web.Models.Taxes;
 
 namespace Facturador.Test
 {

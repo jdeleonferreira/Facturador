@@ -23,7 +23,7 @@ namespace Facturador.Domain.Entities.Invoice
         public string InvoiceNumber { get; set; }
 
         #region Customer Data
-        public Customer Customer { get; set; }
+        public Customer.Customer Customer { get; set; }
         #endregion
 
         public DateTime CreationDate { get; set; }
@@ -35,7 +35,7 @@ namespace Facturador.Domain.Entities.Invoice
         public decimal Subtotal { get; set; }
         public decimal Total { get; set; }
 
-        public Invoice(Taxes taxes)
+        public Invoice(Taxes.Taxes taxes)
         {
             _Taxes = taxes;
         }
