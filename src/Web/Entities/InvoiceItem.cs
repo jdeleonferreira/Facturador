@@ -13,6 +13,8 @@
         public decimal LineTotal { get; set; }
         public string TaxDescription { get; set; }
         public string TaxTotal { get; set; }
+
+        public Invoice Invoice { get; set; }
         
     }
 }

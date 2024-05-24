@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace Facturador.Web.Entities
 {
@@ -11,5 +12,16 @@ namespace Facturador.Web.Entities
         public DbSet<InvoiceItem> InvoiceItems { get; set;}
         public DbSet<Customer> Customers { get; set;}
         public DbSet<UnitOfMeasurement> UnitOfMeasurement { get; set;}
+
+        #region Required
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Invoice>()
+                .Property(i => i.CreatedDate)
+                .HasColumnName("CreationDate")
+                .IsRequired();
+        }
+        #endregion
     }
 }
