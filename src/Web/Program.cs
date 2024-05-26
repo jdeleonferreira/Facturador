@@ -1,4 +1,8 @@
+using Facturador.Application.Common.Interfaces;
 using Facturador.Web.Entities;
+using Facturador.Web.Models;
+using Facturador.Web.Reverse;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +14,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<InvoiceDbContext>(
+
+// Add Authentication
+builder.Services.AddAuthentication();
+
+// Add Authorization
+builder.Services.AddAuthorizationBuilder();
+
+// Configure DbContext 
+builder.Services.AddDbContext<InvoiceContext>(
     options => options.UseSqlServer("name=ConnectionStrings:Invoice"));
+
+builder.Services.AddIdentityApiEndpoints<User>()
+    .AddEntityFrameworkStores<InvoiceContext>();
 
 var app = builder.Build();
 
@@ -27,5 +42,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+    //.RequireAuthorization();
 
 app.Run();

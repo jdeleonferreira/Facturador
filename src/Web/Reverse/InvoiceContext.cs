@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Facturador.Web.Models;
 
 namespace Facturador.Web.Reverse;
 
-public partial class InvoiceContext : DbContext
+public partial class InvoiceContext : IdentityDbContext<User>
 {
     public InvoiceContext()
     {

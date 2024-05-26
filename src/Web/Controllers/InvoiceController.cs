@@ -1,5 +1,6 @@
 ﻿
 using Facturador.Web.Entities;
+using Facturador.Web.Reverse;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,9 +11,9 @@ namespace Facturador.Controllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
-        private readonly InvoiceDbContext _context;
+        private readonly InvoiceContext _context;
 
-        public InvoiceController(InvoiceDbContext context)
+        public InvoiceController(InvoiceContext context)
         {
             _context = context;
         }
@@ -20,8 +21,8 @@ namespace Facturador.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            var uom = new UnitOfMeasurement { Code = "012", Unit = "test" };
-            _context.UnitOfMeasurement.Add(uom);
+            var uom = new Web.Reverse.UnitOfMeasurement { Code = "012", Unit = "test" };
+            _context.UnitOfMeasurements.Add(uom);
             _context.SaveChanges();
             var id = _context.ContextId;
             return new string[] { "id insertado: " + uom.Id , "value2" };
