@@ -1,4 +1,4 @@
-using Facturador.Web.Entities;
+using Facturador.Web.Reverse;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<InvoiceDbContext>(
+builder.Services.AddDbContext<InvoiceContext>(
     options => options.UseSqlServer("name=ConnectionStrings:Invoice"));
 
 var app = builder.Build();
