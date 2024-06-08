@@ -52,23 +52,17 @@ namespace Facturador.Web.Controllers
 
         public async Task<IActionResult> Login(LoginDTO objeto)
         {
-            Console.WriteLine(objeto.Email);
-            Console.WriteLine(objeto.PasswordCustomer);
-            Console.WriteLine("---------------------------");
-            var customerFound = await  _context.Customers.Where(u => u.Email == objeto.Email)
+            var customerFound = await  _context.Customers.Where(u => u.Email == objeto.Email
+                                                                && u.PasswordCustomer == _utilidades.EncriptationSHA256(objeto.PasswordCustomer))
                                                                .FirstOrDefaultAsync();
-
-            Console.WriteLine("---------------------------");
-            return Ok(customerFound.Equals(null));
-
-            //if(customerFound == null)
-            //{
-            //    return StatusCode(StatusCodes.Status200OK, new { isSucces = false, token=""});
-            //}
-            //else
-            //{
-            //    return StatusCode(StatusCodes.Status200OK, new { isSucces = true    });
-            //}
+            if (customerFound == null)
+            {
+                return StatusCode(StatusCodes.Status200OK, new { isSucces = false, token = "" });
+            }
+            else
+            {
+                return StatusCode(StatusCodes.Status200OK, new { isSucces = true, token= _utilidades.GenerarJWT(customerFound)});
+            }
 
         }
     }
