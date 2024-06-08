@@ -9,7 +9,8 @@ public partial class Customer
 
     public string Name { get; set; } = null!;
 
-    public string? TaxNumber { get; set; }
+    public string? TaxNumber { get; set; } = null;
+    public string? PasswordCustomer { get; set; } = null;
 
     public string ContactNumber { get; set; } = null!;
 

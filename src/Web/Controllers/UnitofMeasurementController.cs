@@ -1,4 +1,5 @@
 ﻿using Facturador.Web.Reverse;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Facturador.Web.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class UnitofMeasurementController : ControllerBase
     {

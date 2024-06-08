@@ -47,6 +47,9 @@ public partial class InvoiceContext : DbContext
             entity.Property(e => e.TaxNumber)
                 .HasMaxLength(50)
                 .IsUnicode(false);
+            entity.Property(e => e.PasswordCustomer)
+                .HasMaxLength(100)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Invoice>(entity =>
