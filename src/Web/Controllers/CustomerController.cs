@@ -1,34 +1,34 @@
-﻿
-using Facturador.Web.Reverse;
+﻿using Facturador.Web.Reverse;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 
-namespace Facturador.Controllers
+namespace Facturador.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class InvoiceController : ControllerBase
+    public class CustomerController : ControllerBase
     {
 
         //BD - Enlace
         private readonly InvoiceContext _context;
-        public InvoiceController(InvoiceContext context)
+
+        public CustomerController(InvoiceContext context)
         {
+
             _context = context;
         }
 
 
         [HttpGet]
-        //Get: List of invoices
-
+        
+        //Get: List of customers
         public IActionResult GetAll()
         {
             try
             {
-                List<Invoice>  ListInvoice = _context.Invoices.ToList();
-                if (ListInvoice == null) { return NotFound("No se encontraron registros"); }
-                return Ok(ListInvoice);
+                List<Customer> ListCustomers = _context.Customers.ToList();
+                if (ListCustomers == null) { return NotFound("No se encontraron registros"); }
+                return Ok(ListCustomers);
 
             }
             catch (Exception ex)
@@ -38,16 +38,16 @@ namespace Facturador.Controllers
 
         }
 
-        //One Invoice
+        //One Customer
         [HttpGet("{id}")]
 
-        public IActionResult  Get(int id)
+        public IActionResult Get(int id)
         {
             try
             {
-                var InvoiceOne = _context.Invoices.Find(id);
-                if (InvoiceOne == null) {return NotFound("Registro no encontrado"); }
-                return Ok(InvoiceOne);
+                var CustomerFound = _context.Customers.Find(id);
+                if (CustomerFound == null) { return NotFound("Registro no encontrado"); }
+                return Ok(CustomerFound);
 
             }
             catch (Exception ex)
@@ -56,16 +56,18 @@ namespace Facturador.Controllers
             }
         }
 
-        //Delete invoice
+
+
+        //Delete customer 
         [HttpDelete("{id}")]
 
         public IActionResult Delete(int id)
         {
             try
             {
-                var InvoiceFound = _context.Invoices.Find(id);
-                if (InvoiceFound == null) {return NotFound("Registro no encontrado"); }
-                _context.Invoices.Remove(InvoiceFound);
+                var CustomerFound = _context.Customers.Find(id);
+                if (CustomerFound == null) { return NotFound("Registro no encontrado"); }
+                _context.Customers.Remove(CustomerFound);
                 _context.SaveChanges();
 
                 return Ok("Invoice eliminado correctamente");
@@ -79,8 +81,5 @@ namespace Facturador.Controllers
 
 
         }
-
-
     }
-
 }
