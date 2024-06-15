@@ -1,9 +1,15 @@
-﻿namespace Facturador.Web.Entities
+﻿using System;
+using System.Collections.Generic;
+
+namespace Facturador.Web.Entities;
+
+public partial class UnitOfMeasurement
 {
-    public class UnitOfMeasurement
-    {
-        public int Id { get; set; }
-        public string Code { get; set; }
-        public string Unit { get; set; }
-    }
+    public int Id { get; set; }
+
+    public string Code { get; set; } = null!;
+
+    public string Unit { get; set; } = null!;
+
+    public virtual ICollection<InvoiceItem> InvoiceItems { get; set; } = new List<InvoiceItem>();
 }

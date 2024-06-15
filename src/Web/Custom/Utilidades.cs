@@ -22,7 +22,7 @@ namespace Facturador.Web.Custom
             //Instaciamos clase sha256hash para acceder a sus metodos
             using (SHA256 sha256Hash = SHA256.Create())
             {
-                //Calculamos hash en un ARREGLO < -importante
+                //Calculamos hash en un ARREGLO < -importante - standar internacional
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(cadena));
 
                 //Convertimos el array en bytes a string

@@ -1,6 +1,6 @@
 ﻿using Facturador.Web.Custom;
-using Facturador.Web.Reverse;
-using Facturador.Web.Reverse.DTOs;
+using Facturador.Web.Entities;
+using Facturador.Web.Models.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +11,11 @@ namespace Facturador.Web.Controllers
     [Route("api/[controller]")]
     [AllowAnonymous]
     [ApiController]
-    public class AccessLogin : ControllerBase
+    public class AccessLoginController : ControllerBase
     {
         private readonly InvoiceContext _context;
         private readonly Utilidades _utilidades;
-        public AccessLogin(InvoiceContext context, Utilidades utilidades )
+        public AccessLoginController(InvoiceContext context, Utilidades utilidades )
         {
             _context = context; 
             _utilidades = utilidades;   
@@ -23,7 +23,6 @@ namespace Facturador.Web.Controllers
 
         [HttpPost]
         [Route("Registrarse")]
-
         public async Task<IActionResult> Registrarse(CustomerDTO objeto) {
 
             var modelCustomer = new Customer
@@ -31,12 +30,10 @@ namespace Facturador.Web.Controllers
                 Id = objeto.Id,
                 Email = objeto.Email,
                 PasswordCustomer = _utilidades.EncriptationSHA256(objeto.PasswordCustomer), 
-
-
             };
 
             _context.Customers.Add(modelCustomer);
-            _context.SaveChanges(); 
+             await _context.SaveChangesAsync(); 
 
             if(modelCustomer.Id != 0) {
                 return StatusCode(StatusCodes.Status200OK, new { isSuccess = true });
@@ -49,9 +46,9 @@ namespace Facturador.Web.Controllers
 
         [HttpPost]
         [Route("login")]
-
         public async Task<IActionResult> Login(LoginDTO objeto)
         {
+            //Pasar a domain Layer
             var customerFound = await  _context.Customers.Where(u => u.Email == objeto.Email
                                                                 && u.PasswordCustomer == _utilidades.EncriptationSHA256(objeto.PasswordCustomer))
                                                                .FirstOrDefaultAsync();

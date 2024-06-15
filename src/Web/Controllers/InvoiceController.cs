@@ -1,5 +1,5 @@
 ﻿
-using Facturador.Web.Reverse;
+using Facturador.Web.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,13 +11,11 @@ namespace Facturador.Controllers
     public class InvoiceController : ControllerBase
     {
 
-        //BD - Enlace
         private readonly InvoiceContext _context;
         public InvoiceController(InvoiceContext context)
         {
             _context = context;
         }
-
 
         [HttpGet]
         //Get: List of invoices
@@ -27,8 +25,8 @@ namespace Facturador.Controllers
             try
             {
                 List<Invoice>  ListInvoice = _context.Invoices.ToList();
-                if (ListInvoice == null) { return NotFound("No se encontraron registros"); }
-                return Ok(ListInvoice);
+                if (ListInvoice == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "listado encontrado correctamente", ListInvoice}); 
 
             }
             catch (Exception ex)
@@ -45,9 +43,9 @@ namespace Facturador.Controllers
         {
             try
             {
-                var InvoiceOne = _context.Invoices.Find(id);
-                if (InvoiceOne == null) {return NotFound("Registro no encontrado"); }
-                return Ok(InvoiceOne);
+                var invoiceOne = _context.Invoices.Find(id);
+                if (invoiceOne == null) {return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Invoice encontrada correctamente", invoiceOne });
 
             }
             catch (Exception ex)
@@ -64,11 +62,11 @@ namespace Facturador.Controllers
             try
             {
                 var InvoiceFound = _context.Invoices.Find(id);
-                if (InvoiceFound == null) {return NotFound("Registro no encontrado"); }
+                if (InvoiceFound == null) {return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
                 _context.Invoices.Remove(InvoiceFound);
                 _context.SaveChanges();
 
-                return Ok("Invoice eliminado correctamente");
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Invoice eliminado correctamente" });
 
             }
             catch (Exception ex)

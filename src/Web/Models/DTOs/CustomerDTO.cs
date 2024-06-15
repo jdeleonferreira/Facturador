@@ -1,4 +1,4 @@
-﻿namespace Facturador.Web.Reverse.DTOs
+﻿namespace Facturador.Web.Models.DTOs
 {
     public class CustomerDTO
     {

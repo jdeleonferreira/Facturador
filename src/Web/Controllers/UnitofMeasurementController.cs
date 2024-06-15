@@ -1,4 +1,4 @@
-﻿using Facturador.Web.Reverse;
+﻿using Facturador.Web.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,14 +12,11 @@ namespace Facturador.Web.Controllers
     public class UnitofMeasurementController : ControllerBase
     {
 
-        //BD - Enlace
         private readonly InvoiceContext _context;
         public UnitofMeasurementController(InvoiceContext context)
         {
             _context = context;
         }
-
-
 
         //// GET: List of UnitofMeasurement 
         [HttpGet]
@@ -28,8 +25,8 @@ namespace Facturador.Web.Controllers
             try
             {
                 List<UnitOfMeasurement> listUnit = _context.UnitOfMeasurements.ToList();
-                if (listUnit == null) { return NotFound("No se encontraron registros"); }
-                return Ok(listUnit);
+                if (listUnit == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Listado encontrado", listUnit }); ;
 
             }
             catch (Exception ex)
@@ -45,9 +42,9 @@ namespace Facturador.Web.Controllers
         {
             try
             {
-                var UnitFound = _context.UnitOfMeasurements.Find(id);
-                if (UnitFound == null) { return NotFound("Registro no encontrado"); }
-                return Ok(UnitFound);
+                var unitFound = _context.UnitOfMeasurements.Find(id);
+                if (unitFound == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Registro encontrado", unitFound});
 
             }
             catch (Exception ex)
@@ -56,34 +53,20 @@ namespace Facturador.Web.Controllers
             }
         }
 
-        //// POST: Creacion de un item  UnitOfMeasurement 
-        [HttpPost]
-        public IEnumerable<String> Post()
-        {
-            try
-            {
-                var uom = new UnitOfMeasurement { Code = "012", Unit = "test" };
-                _context.UnitOfMeasurements.Add(uom);
-                _context.SaveChanges();
-                var id = _context.ContextId;
-                return new string[] { "id insertado: " + uom.Id, "value2" };
+        ////// POST: Creacion de un item  UnitOfMeasurement 
+        //[HttpPost]
+        //public IEnumerable<String> Post()
+        //{
+        //    //Falta defininir DTOs
+        //    return ;
+        //}
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+        //// PUT api/<UnitofMeasurementController>/5
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] string value)
 
-        // PUT api/<UnitofMeasurementController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-
-        {
-        }
-
-
-
+        //{
+        //}
 
 
         // DELETE api/<UnitofMeasurementController>/5
@@ -92,12 +75,12 @@ namespace Facturador.Web.Controllers
         {
             try
             {
-                var UnitFound = _context.UnitOfMeasurements.Find(id);
-                if (UnitFound == null) { return NotFound("Registro no encontrado"); }
-                _context.UnitOfMeasurements.Remove(UnitFound);
+                var unitFound = _context.UnitOfMeasurements.Find(id);
+                if (unitFound == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                _context.UnitOfMeasurements.Remove(unitFound);
                 _context.SaveChanges();
 
-               return Ok("Regitro eliminado correctamente");
+               return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Eliminado correctamente" });
 
             }catch (Exception ex)
             {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace Facturador.Web.Reverse;
+namespace Facturador.Web.Entities;
 
 public partial class InvoiceContext : DbContext
 {
