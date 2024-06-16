@@ -1,8 +1,8 @@
 ﻿
 using Facturador.Web.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Facturador.Controllers
 {
@@ -10,46 +10,75 @@ namespace Facturador.Controllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
-        private readonly InvoiceDbContext _context;
 
-        public InvoiceController(InvoiceDbContext context)
+        private readonly InvoiceContext _context;
+        public InvoiceController(InvoiceContext context)
         {
             _context = context;
         }
-        // GET: api/<InvoiceController>
+
         [HttpGet]
-        public IEnumerable<string> Get()
+        //Get: List of invoices
+
+        public IActionResult GetAll()
         {
-            var uom = new UnitOfMeasurement { Code = "012", Unit = "test" };
-            _context.UnitOfMeasurement.Add(uom);
-            _context.SaveChanges();
-            var id = _context.ContextId;
-            return new string[] { "id insertado: " + uom.Id , "value2" };
+            try
+            {
+                List<Invoice>  ListInvoice = _context.Invoices.ToList();
+                if (ListInvoice == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "listado encontrado correctamente", ListInvoice}); 
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
 
-        // GET api/<InvoiceController>/5
+        //One Invoice
         [HttpGet("{id}")]
-        public string Get(int id)
+
+        public IActionResult  Get(int id)
         {
-            return "value";
+            try
+            {
+                var invoiceOne = _context.Invoices.Find(id);
+                if (invoiceOne == null) {return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Invoice encontrada correctamente", invoiceOne });
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        // POST api/<InvoiceController>
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT api/<InvoiceController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<InvoiceController>/5
+        //Delete invoice
         [HttpDelete("{id}")]
-        public void Delete(int id)
+
+        public IActionResult Delete(int id)
         {
+            try
+            {
+                var InvoiceFound = _context.Invoices.Find(id);
+                if (InvoiceFound == null) {return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                _context.Invoices.Remove(InvoiceFound);
+                _context.SaveChanges();
+
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Invoice eliminado correctamente" });
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+
+
         }
+
+
     }
+
 }

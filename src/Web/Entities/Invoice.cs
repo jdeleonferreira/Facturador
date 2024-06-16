@@ -1,17 +1,25 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using System;
+﻿using System;
+using System.Collections.Generic;
 
-namespace Facturador.Web.Entities
+namespace Facturador.Web.Entities;
+
+public partial class Invoice
 {
-    public class Invoice
-    {
-        public int CustomerId { get; set; }
-        public int Id { get; set; }
-        public string InvoiceNumber { get; set; }
-        public DateTime CreationDate { get; set; }
-        public string CreatedBy { get; set; }
-        public decimal Subtotal { get; set; }
-        public decimal Total { get; set; } = 0;
-        
-    }
+    public int Id { get; set; }
+
+    public string InvoiceNumber { get; set; } = null!;
+
+    public DateTime CreatedDate { get; set; }
+
+    public string CreatedBy { get; set; } = null!;
+
+    public decimal Subtotal { get; set; }
+
+    public decimal Total { get; set; }
+
+    public int CustomerId { get; set; }
+
+    public virtual Customer Customer { get; set; } = null!;
+
+    public virtual ICollection<InvoiceItem> InvoiceItems { get; set; } = new List<InvoiceItem>();
 }
