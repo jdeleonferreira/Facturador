@@ -1,5 +1,6 @@
 ﻿using Facturador.Domain.Entities.Invoice;
 
+namespace Facturador.Web.Entities;
 public partial class Customer
 {
     public int Id { get; set; }

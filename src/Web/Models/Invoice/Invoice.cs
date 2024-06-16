@@ -1,5 +1,5 @@
 ﻿using Facturador.Web.Models.Taxes;
-using Facturador.Web.Models.Customer;
+using Facturador.Web.Entities;
 
 namespace Facturador.Web.Models.Invoice
 {
@@ -20,7 +20,7 @@ namespace Facturador.Web.Models.Invoice
         public string InvoiceNumber { get; set; }
 
         #region Customer Data
-        public Customer.Customer Customer { get; set; }
+        public Customer Customer { get; set; }
         #endregion
 
         public DateTime CreationDate { get; set; }
