@@ -25,8 +25,8 @@ public partial class InvoiceContext : IdentityDbContext<User>
 
     public virtual DbSet<UnitOfMeasurement> UnitOfMeasurements { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Name=ConnectionStrings:Invoice");
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //    => optionsBuilder.UseSqlServer("Name=ConnectionStrings:Invoice");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -113,6 +113,23 @@ public partial class InvoiceContext : IdentityDbContext<User>
             entity.Property(e => e.Unit)
                 .HasMaxLength(50)
                 .IsUnicode(false);
+        });
+
+        // Define composite primary key for IdentityUserLogin<string>
+        modelBuilder.Entity<IdentityUserLogin<string>>(b =>
+        {
+            b.HasKey(l => new { l.LoginProvider, l.ProviderKey });
+        });
+
+        // Similarly, define keys for other Identity-related entities if necessary
+        modelBuilder.Entity<IdentityUserRole<string>>(b =>
+        {
+            b.HasKey(r => new { r.UserId, r.RoleId });
+        });
+
+        modelBuilder.Entity<IdentityUserToken<string>>(b =>
+        {
+            b.HasKey(t => new { t.UserId, t.LoginProvider, t.Name });
         });
 
         OnModelCreatingPartial(modelBuilder);

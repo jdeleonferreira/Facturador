@@ -1,32 +1,33 @@
 using Facturador.Application.Common.Interfaces;
-using Facturador.Web.Entities;
 using Facturador.Web.Models;
 using Facturador.Web.Reverse;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddControllers();
 
 // Add Authentication
-builder.Services.AddAuthentication();
+builder.Services.AddAuthentication().AddBearerToken();
 
 // Add Authorization
-builder.Services.AddAuthorizationBuilder();
+builder.Services.AddAuthorization();
 
 // Configure DbContext 
 builder.Services.AddDbContext<InvoiceContext>(
-    options => options.UseSqlServer("name=ConnectionStrings:Invoice"));
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("Invoice")));
 
 builder.Services.AddIdentityApiEndpoints<User>()
-    .AddEntityFrameworkStores<InvoiceContext>();
+    .AddEntityFrameworkStores<InvoiceContext>()
+    .AddApiEndpoints();
+
+
 
 var app = builder.Build();
 
@@ -39,9 +40,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapIdentityApi<User>();
+
 app.MapControllers();
-    //.RequireAuthorization();
+
 
 app.Run();

@@ -1,5 +1,4 @@
 ﻿
-using Facturador.Web.Entities;
 using Facturador.Web.Reverse;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,7 +20,7 @@ namespace Facturador.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            var uom = new Web.Reverse.UnitOfMeasurement { Code = "012", Unit = "test" };
+            var uom = new UnitOfMeasurement { Code = "012", Unit = "test" };
             _context.UnitOfMeasurements.Add(uom);
             _context.SaveChanges();
             var id = _context.ContextId;
@@ -52,5 +51,7 @@ namespace Facturador.Controllers
         public void Delete(int id)
         {
         }
+
+ 
     }
 }
