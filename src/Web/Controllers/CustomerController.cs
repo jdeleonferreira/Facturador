@@ -24,6 +24,8 @@ namespace Facturador.Web.Controllers
             _utilidades = utilidades;
         }
 
+
+
         [HttpGet]
         //Get: List of customers
         public async Task<IActionResult> GetAll()
