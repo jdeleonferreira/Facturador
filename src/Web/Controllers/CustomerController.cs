@@ -58,6 +58,7 @@ namespace Facturador.Web.Controllers
         }
 
 
+                await _context.Customers.AddAsync(customer);
 
 
         //Delete customer 
