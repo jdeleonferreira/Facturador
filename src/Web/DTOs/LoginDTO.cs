@@ -1,4 +1,4 @@
-﻿namespace Facturador.Web.Models.DTOs
+﻿namespace Facturador.Web.DTOs
 {
     public class LoginDTO
     {

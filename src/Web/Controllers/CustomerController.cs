@@ -1,5 +1,8 @@
-﻿using Facturador.Web.Entities;
+﻿using AutoMapper;
+using Facturador.Web.DTOs;
+using Facturador.Web.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace Facturador.Web.Controllers
@@ -10,9 +13,11 @@ namespace Facturador.Web.Controllers
     {
 
         private readonly InvoiceContext _context;
+        private readonly IMapper _mapper;
 
-        public CustomerController(InvoiceContext context)
+        public CustomerController(InvoiceContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }
 
@@ -51,6 +56,8 @@ namespace Facturador.Web.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+
 
 
         //Delete customer 
