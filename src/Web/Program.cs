@@ -1,5 +1,6 @@
 using Facturador.Web.Custom;
 using Facturador.Web.Entities;
+using Facturador.Web.Mappers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -12,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //Integrando AutoMapper
+builder.Services.AddAutoMapper(typeof(MappingProfile)); //Integrando AutoMapper
 
 builder.Services.AddDbContext<InvoiceContext>(
     options => options.UseSqlServer("name=ConnectionStrings:Invoice"));
