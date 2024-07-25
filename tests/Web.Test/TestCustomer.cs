@@ -8,7 +8,12 @@ namespace Web.Test
     [TestFixture]
     public class TestCustomer
     {
-        //MMMMM
+        private readonly CustomerController _controller;
+
+        public TestCustomer(CustomerController customer)
+        {
+            _controller = customer;
+        }
 
         [Test]
         public async Task CustomerTestGetAll()

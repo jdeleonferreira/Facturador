@@ -32,7 +32,7 @@ namespace Facturador.Web.Controllers
         {
             try
             {
-                List<Customer> listCustomers = await _context.Customers.ToListAsync();
+                IList<Customer> listCustomers = await _context.Customers.ToListAsync();
                 if (listCustomers == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
                 return StatusCode(StatusCodes.Status200OK, new { isSuccess = "listado encontrado correctamente", listCustomers });
 
@@ -52,6 +52,22 @@ namespace Facturador.Web.Controllers
             try
             {
                 var customerFound = await _context.Customers.FindAsync(id);
+                if (customerFound == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Registro encontrado correctamente", customerFound });
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpGet("{name}")]
+        public async Task<IActionResult> Get(string name)
+        {
+            try
+            {
+                var customerFound = await _context.Customers.FirstOrDefaultAsync(c => c.Name == name);
                 if (customerFound == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
                 return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Registro encontrado correctamente", customerFound });
 
