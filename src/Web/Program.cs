@@ -1,5 +1,7 @@
 using Facturador.Web.Custom;
 using Facturador.Web.Entities;
+using Facturador.Web.Interfaces;
+using Facturador.Web.Logic;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -8,11 +10,18 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //Integrando AutoMapper
+
+
+// Registra tus servicios personalizados
+builder.Services.AddScoped<ICustomerWriter, CustomerServicesWriter>();
+builder.Services.AddScoped<ICustomerReader, CustomerServicesReader>();
+
+
+
 
 builder.Services.AddDbContext<InvoiceContext>(
     options => options.UseSqlServer("name=ConnectionStrings:Invoice"));
@@ -51,7 +60,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 app.UseAuthorization();
 
 app.MapControllers();
