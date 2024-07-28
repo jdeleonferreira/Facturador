@@ -1,8 +1,12 @@
 ﻿using AutoMapper;
+using Facturador.Web.Custom;
 using Facturador.Web.DTOs;
 using Facturador.Web.Entities;
+using Facturador.Web.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using System.Collections;
 
 
 namespace Facturador.Web.Controllers
@@ -12,76 +16,59 @@ namespace Facturador.Web.Controllers
     public class CustomerController : ControllerBase
     {
 
-        private readonly InvoiceContext _context;
-        private readonly IMapper _mapper;
+        private readonly ICustomerReader _CustomerReader;
+        private readonly ICustomerWriter _CustomerWriter;
 
-        public CustomerController(InvoiceContext context, IMapper mapper)
+
+        public CustomerController(ICustomerWriter customerWriter, ICustomerReader customerReader)
         {
-            _mapper = mapper;
-            _context = context;
+            _CustomerReader = customerReader ?? throw new ArgumentNullException(nameof(customerReader));
+            _CustomerWriter = customerWriter ?? throw new ArgumentNullException(nameof(customerWriter));
         }
 
         [HttpGet]
-        //Get: List of customers
-        public IActionResult GetAll()
-        {
-            try
-            {
-                List<Customer> listCustomers = _context.Customers.ToList();
-                if (listCustomers == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
-                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "listado encontrado correctamente", listCustomers });
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+        //Get: List of customers
+        public async Task<IActionResult> GetAllCustomer()
+        {
+            var listCustomers = await _CustomerReader.GetAll();
+            return StatusCode(StatusCodes.Status200OK, new { isSuccess = "listado encontrado correctamente", listCustomers });
 
         }
 
         //One Customer
         [HttpGet("{id}")]
 
-        public IActionResult Get(int id)
+        public async Task<IActionResult> GetCustomerById(int id)
         {
-            try
-            {
-                var customerFound = _context.Customers.Find(id);
-                if (customerFound == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
-                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Registro encontrado correctamente", customerFound });
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            var customerFound = await _CustomerReader.Get(id);
+            return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Registro encontrado correctamente", customerFound });
         }
 
 
+        ////Create Customer
+        [HttpPost]
 
+        public async Task<IActionResult> AddCustomer(CustomerDTO customerDTO)
+        {
+            Console.WriteLine(customerDTO);
+            var customerStatus = await _CustomerWriter.AddCustomer(customerDTO);
+            return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Customer registrado correctamente" });
+        }
 
-        //Delete customer 
+        ////Delete customer 
         [HttpDelete("{id}")]
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> DeleteCustomer(int id)
         {
-            try
-            {
-                var CustomerFound = _context.Customers.Find(id);
-                if (CustomerFound == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
-                _context.Customers.Remove(CustomerFound);
-                _context.SaveChanges();
-
-                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Registro eliminado correctamente" });
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
-
+            var customestatus = await _CustomerWriter.DeleteCustomer(id);
+            return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Registro eliminado correctamente" });
 
         }
+
+
+
     }
 }
+
+
