@@ -25,24 +25,28 @@ namespace Facturador.Web.Controllers
         }
 
 
-
         [HttpGet]
-        //Get: List of customers
+        // Get: List of customers
         public async Task<IActionResult> GetAll()
         {
             try
             {
                 IList<Customer> listCustomers = await _context.Customers.ToListAsync();
-                if (listCustomers == null) { return StatusCode(StatusCodes.Status404NotFound, new { isSuccess = "Registro no encontrado" }); }
-                return StatusCode(StatusCodes.Status200OK, new { isSuccess = "listado encontrado correctamente", listCustomers });
-
+                if (!listCustomers.Any())
+                {
+                    return NotFound(new { isSuccess = "Registro no encontrado" });
+                }
+                return Ok(new { isSuccess = "listado encontrado correctamente", listCustomers });
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
         }
+
+
+
+
 
         //One Customer
         [HttpGet("{id}")]
