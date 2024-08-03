@@ -3,9 +3,7 @@ using Facturador.Web.Custom;
 using Facturador.Web.DTOs;
 using Facturador.Web.Entities;
 using Facturador.Web.Interfaces;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Win32;
 
 namespace Facturador.Web.Logic
 {

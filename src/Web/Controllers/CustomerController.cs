@@ -1,12 +1,6 @@
-﻿using AutoMapper;
-using Facturador.Web.Custom;
-using Facturador.Web.DTOs;
-using Facturador.Web.Entities;
+﻿using Facturador.Web.DTOs;
 using Facturador.Web.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System.Collections;
 
 
 namespace Facturador.Web.Controllers
@@ -51,7 +45,6 @@ namespace Facturador.Web.Controllers
 
         public async Task<IActionResult> AddCustomer(CustomerDTO customerDTO)
         {
-            Console.WriteLine(customerDTO);
             var customerStatus = await _CustomerWriter.AddCustomer(customerDTO);
             return StatusCode(StatusCodes.Status200OK, new { isSuccess = "Customer registrado correctamente" });
         }
