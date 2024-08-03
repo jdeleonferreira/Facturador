@@ -3,20 +3,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Facturador.Web.Controllers;
 using Facturador.Web.Entities;
-using Facturador.Web.Custom;
-using AutoMapper;
 using Moq.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Facturador.Web.Interfaces;
 
 namespace CustomerControllerTests
 {
-    public class CustomerControllerTestsS
+    public class CustomerControllerTests
     {
         private CustomerController _controller;
         private Mock<InvoiceContext> _mockContext;
-        private Mock<IMapper> _mockMapper;
         private Mock<IConfiguration> _mockConfiguration;
-        private Utilidades _utilidades;
+        private Mock<ICustomerWriter> _customerWriter;
+        private Mock<ICustomerReader> _customerReader;
 
         [SetUp]
         public void Setup()
@@ -49,24 +48,21 @@ namespace CustomerControllerTests
             };
 
 
-            _mockMapper = new Mock<IMapper>();
             _mockConfiguration = new Mock<IConfiguration>();
-            _utilidades = new Utilidades(_mockConfiguration.Object);
             _mockContext = new Mock<InvoiceContext>();
+            _customerWriter = new Mock<ICustomerWriter>();
+            _customerReader = new Mock<ICustomerReader>();
 
             //Add List Customers
             _mockContext.Setup(c => c.Customers).ReturnsDbSet(customers);
-            _controller = new CustomerController(_mockContext.Object, _mockMapper.Object, _utilidades);
-
-
-
+            _controller = new CustomerController(_customerWriter.Object, _customerReader.Object);
 
         }
 
         [Test]
         public async Task GetAll_ReturnsOkResult_WithListOfCustomers()
         {
-            //Arrange
+
             // Arrange
             var customers = new List<Customer>
             {
@@ -96,7 +92,7 @@ namespace CustomerControllerTests
 
 
             // Act
-            var result = await _controller.GetAll();
+            var result = await _controller.GetAllCustomer();
 
             // Assert
             Assert.That(result, Is.InstanceOf<OkObjectResult>());
