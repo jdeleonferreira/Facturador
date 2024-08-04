@@ -8,6 +8,9 @@ using System.Text;
 namespace Facturador.Web.Custom
 {
     public class Utilidades
+
+
+
     {
         //Inyeccion de dependecia
         private IConfiguration _configuration;
@@ -56,9 +59,9 @@ namespace Facturador.Web.Custom
             var JwtConfig = new JwtSecurityToken(
                 claims: customerClaims,
                 expires: DateTime.UtcNow.AddMinutes(10),
-                signingCredentials:credentials
+                signingCredentials: credentials
                 );
-            return new JwtSecurityTokenHandler().WriteToken( JwtConfig );
+            return new JwtSecurityTokenHandler().WriteToken(JwtConfig);
 
         }
 
