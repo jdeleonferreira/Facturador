@@ -19,7 +19,7 @@ namespace CustomerControllerTests
         private Mock<ICustomerWriter> _mockCustomerWriter;
         private Mock<ICustomerReader> _mockCustomerReader;
         public class MyResultAll { public string IsSuccess { get; set; } public IList<Customer> ListCustomers { get; set; } }
-        public class MyResultOne { public string IsSuccess { get; set; } public IList<Customer> customerFound { get; set; } }
+        public class MyResultOne { public string IsSuccess { get; set; } public Customer customerFound { get; set; } }
 
 
         [SetUp]
